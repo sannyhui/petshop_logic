@@ -1,0 +1,17 @@
+
+<div>
+    <form action="/u_information_update" method="post">
+        <label for="name: ">Name :</label>
+        <input type="text" name="name" id="name" value={{customer.name}}>
+        <br>
+        <label for="address">Address :</label>
+        <input type="text" name="address" id="address" value={{customer.address}}>
+        <br>
+        <label for="phone">Phone :</label>
+        <input type="text" name="phone" id="phone" value={{customer.phone}}>
+        <input type="hidden" name="user_id" id="user_id" value={{customer.user_id}}>
+        <br>
+        <button type="submit" class="btn btn-info">Update</button>
+        {{customer.message}}
+    </form>
+</div>

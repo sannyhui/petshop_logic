@@ -1,0 +1,17 @@
+{{#each products}}
+<div class="card card-body mb-2 text-center">
+    <h4 class="card-title">{{product_name}}</h4>
+    <img class="img-fluid mx-auto" width="30%" src="{{product_image}}" alt="" >
+    <h6>${{price}}</h6>
+
+    <form action="/add" method="post">
+        <label for="quantity">Quantity:</label>
+        <input style="width: 10%" type="number" name="quantity" id="quantity" value="0" min="0">
+        <input type="hidden" name="id" value={{product_id}}>
+            <input type="hidden" name="price" value={{price}}>
+        <button type="submit" class="btn btn-light">Submit</button>
+    </form>
+</div>
+{{else}}
+<p>No data listed</p>
+{{/each}}

@@ -1,0 +1,42 @@
+
+{{#each cart}}
+<div class="card card-body mb-2">
+    <div>
+        <h5>{{product_name}}</h5>
+        <img src="{{product_image}}" alt="" width="30%">
+        <p id="price">${{price}}</p>
+        <form action="/update" method="post">
+            <label for="quantity"></label>
+            <input type="number" id="quantity" name="quantity" min="0" value={{quantity}}><span id="subtotal">${{subtotal}}</span><br>
+            <input type="hidden" name="id" id="id" value={{product_id}}>
+            <button type="submit" class="btn btn-info">Update</button>
+        </form>
+    </div>
+</div>
+{{else}}
+<p>No data listed</p>
+{{/each}}
+<div class="text-center">
+    <form action="/checkout" method="get">
+        <button type="submit" class="btn btn-primary">CheckOut</button>
+    </form>
+</div>
+
+<script>
+
+</script> 
+
+    {{!-- var price = document.querySelector(".price"); 
+    {{!-- var subtotal = document.querySelector(".subtotal");   --}} --}}
+        {{!-- var quantity = document.querySelector(.quantity).innerHTML;
+    var template = Handlebars.compile(quantity);
+    document.body.innerHTML = template();
+    console.log("Quantity", quantity);
+
+    template.addEventListener("change",(e) => {
+        console.log("work");
+        const value = price.value * e.target.value;
+        subtotal.innerHTML = 
+        `<span>${value}</span>`
+
+    }); --}}

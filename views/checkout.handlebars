@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="float-left">
+        <h5>Name: {{name.name}}</h5>
+        <h5>Address: {{address.address}}</h5>
+        <h5>Phone: {{phone.phone}}</h5>
+    </div>
+    <div class="float-right">
+        <h4>Invoice: {{invoice.invoice_number}}</h4>
+        <h4>Date: {{date.date}}</h4>
+    </div>
+</div>
+<br>
+<table class="table">
+        <tr>    
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>SubTotal</th>
+        </tr>
+
+{{#each cart.cart}}
+    <tbody>
+        <tr>
+            <td>{{product_name}}</td>
+            <td>{{quantity}}</td>
+            <td>${{price}}</td>
+            <td>${{subtotal}}</td>
+        </tr>
+    </tbody>
+{{else}}
+<p>No data listed</p>
+{{/each}}
+</table>
+<div class="text-right">
+    <p>Total: ${{total.total}}</p>
+</div>
+<div class="container">
+    <div class="text-center">
+        <form action="/clear" method="get">
+            <button type="submit" class="btn btn-primary">Continue Shop</button>
+        </form>
+    </div>
+</div>

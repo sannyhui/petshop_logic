@@ -1,0 +1,22 @@
+{{#each products}}
+<div class="card card-body mb-2 text-center">
+    <img class="img-fluid mx-auto" width="30%" src="{{product_image}}" alt="">
+
+    <form action="/items" method="post">
+        <label for="product">Product Name :</label>
+        <input type="text" name="product" id="quantity" value={{product_name}}>
+        <br>
+        <label for="file">Image File:</label>
+        <input type="text" name="file" value={{product_image}}>
+        <br>
+        <label for="price">Unit Price :$</label>
+        <input type="number" name="price" value={{price}} min="0">
+        <br>
+        <input type="hidden" name="index" value="{{@index}}">
+        <button type="submit" class="btn btn-light">Submit</button>
+    </form>
+
+</div>
+{{else}}
+<p>No data listed</p>
+{{/each}}

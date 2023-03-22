@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="float-left">
+        <h5>Name: {{invoice_item.name}}</h5>
+        <h5>Address: {{invoice_item.address}}</h5>
+        <h5>Phone: {{invoice_item.phone}}</h5>
+    </div>
+    <div class="float-right">
+        <h4>Invoice: {{invoice_item.invoice}}</h4>
+        <h4>Date: {{invoice_item.date}}</h4>
+    </div>
+</div>
+<br>
+
+<form action="/ua_invoice_edit/{{invoice_item.invoice}}" method="post">
+{{#each invoice_item.items}}
+    <div class="container card card-body mb-2">
+        <div>
+            <h5>{{product_name}}</h5>
+            <p id="price">${{price}}</p>
+            <label for="quantity"></label>
+            <input type="number" id="quantity" name="quantity" max ={{quantity}} min="0" value={{quantity}}><span id="subtotal">${{subtotal}}</span><br>
+            <input type="hidden" name="id" id="id" value={{product_id}}>
+            {{!-- </form> --}}
+        </div>
+    </div>
+    {{else}}
+    <p>No data listed</p>
+    {{/each}}
+
+    <input type="submit" class="btn btn-success btn-block" value="Update" />
+</form>
+
+
+
+{{!-- <div class="text-right">
+    <p>Total: ${{invoice_item.total}}</p>
+</div> --}}
